@@ -1,5 +1,5 @@
 * {
-  color: white;
+  color: #eceff4;
 }
 
 body {
@@ -9,15 +9,15 @@ body {
 .container {
   background-color: #434c5e;
   display: flex;
-  margin: 50px;
+  margin: 100px;
   align-items: center;
   flex-direction: column;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
-.container h3 {
-  color: blue;
-  text-decoration: bold;
+.container p {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .choices {
@@ -30,4 +30,22 @@ body {
   background-color: #d8dee9;
   border-radius: 10px;
   padding: 25px;
+}
+
+.choices button:hover {
+  background-color: #eceff4;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.player-choice {
+  margin: 10px;
+}
+
+.computer-choice {
+  margin: 10px;
+}
+
+.result-display {
+  margin: 10px;
 }

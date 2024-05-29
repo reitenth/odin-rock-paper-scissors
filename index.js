@@ -1,3 +1,8 @@
+//Grab html button classes
+const playerDisplay = document.getElementsByClassName('player-choice');
+const computerDisplay = document.getElementsByClassName('computer-choice');
+const resultDisplay = document.getElementsByClassName('result-display');
+
 // Get computer choice
 function getComputerChoice() {
   const choices = ['rock', 'paper', 'scissors'];
@@ -25,6 +30,14 @@ function playRound(humanSelection, computerSelection) {
     return 'You lose! ' + computerSelection + ' beats ' + humanSelection;
   }
 }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+const result = playRound(humanSelection, computerSelection);
+resultDisplay.textContent = result;
+playerDisplay.textContent = `PLAYER: ${humanSelection}`;
+computerDisplay.textContent = `COMPUTER: ${computerSelection}`;
 
 /* //Play five rounds
 function playGame() {

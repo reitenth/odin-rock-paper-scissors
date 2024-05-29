@@ -8,15 +8,15 @@
   <body>
     <div class="container">
       <h1>Rock, Paper, Scissors</h1>
-      <h3><strong>Choose!</strong></h3>
+      <p>Choose!</p>
       <div class="choices">
-        <button>🪨</button>
-        <button>📜</button>
-        <button>✂️</button>
+        <button onclick="playRound('Rock')">🪨</button>
+        <button onclick="playRound('Paper')">📜</button>
+        <button onclick="playRound('Scissors')">✂️</button>
       </div>
-      <h4>PLAYER:</h4>
-      <h4>COMPUTER:</h4>
-      <h2>RESULT</h2>
+      <div class="player-choice">PLAYER:</div>
+      <div class="computer-choice">COMPUTER:</div>
+      <div class="result-display">RESULT</div>
     </div>
     <script src="./index.js"></script>
   </body>
