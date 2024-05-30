@@ -3,41 +3,34 @@ const playerDisplay = document.getElementsByClassName('player-choice');
 const computerDisplay = document.getElementsByClassName('computer-choice');
 const resultDisplay = document.getElementsByClassName('result-display');
 
-// Get computer choice
-function getComputerChoice() {
-  const choices = ['rock', 'paper', 'scissors'];
-
-  const computerChoice = choices[Math.floor(Math.random() * choices.length)];
-  return computerChoice;
-}
-
-// Get human choice
-function getHumanChoice() {
-  return prompt('rock, paper, scissors').toLowerCase();
-}
+const choices = ['Rock', 'Paper', 'Scissors'];
 
 //Play one round
-function playRound(humanSelection, computerSelection) {
-  if (humanSelection === computerSelection) {
-    return "It's a tie!";
-  } else if (
-    (humanSelection === 'rock' && computerSelection === 'scissors') ||
-    (humanSelection === 'paper' && computerSelection === 'rock') ||
-    (humanSelection === 'scissors' && computerSelection === 'paper')
-  ) {
-    return 'You win! ' + humanSelection + ' beats ' + computerSelection;
-  } else {
-    return 'You lose! ' + computerSelection + ' beats ' + humanSelection;
-  }
+
+function playRound(humanSelection) {
+  const computerSelection = choices[Math.floor(Math.random() * choices.length)];
+  function getResult(humanSelection, computerSelection) {}
+
+  const result = getResult();
+  resultDisplay.textContent = result;
+
+  playerDisplay.textContent = `PLAYER: ${humanSelection}`;
+  computerDisplay.textContent = `COMPUTER: ${computerSelection}`;
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-const result = playRound(humanSelection, computerSelection);
-resultDisplay.textContent = result;
-playerDisplay.textContent = `PLAYER: ${humanSelection}`;
-computerDisplay.textContent = `COMPUTER: ${computerSelection}`;
+humanSelection === computerSelection;
+if (humanSelection === computerSelection) {
+  return "It's a tie!";
+} else if (
+  (humanSelection === 'rock' && computerSelection === 'scissors') ||
+  (humanSelection === 'paper' && computerSelection === 'rock') ||
+  (humanSelection === 'scissors' && computerSelection === 'paper')
+) {
+  return 'You Win!';
+} else {
+  return 'You Lose!';
+}
+}
 
 /* //Play five rounds
 function playGame() {
