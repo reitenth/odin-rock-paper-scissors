@@ -41,11 +41,8 @@ body {
   cursor: pointer;
 }
 
-.player-choice {
-  margin: 20px;
-  font-size: 2rem;
-}
-
+.player-choice,
+.result-row,
 .computer-choice {
   margin: 20px;
   font-size: 2rem;

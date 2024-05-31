@@ -1,33 +1,48 @@
 const playerDisplay = document.querySelector('.player-choice');
 const computerDisplay = document.querySelector('.computer-choice');
 const resultDisplay = document.querySelector('.result-display');
+const resultRow = document.querySelector('.result-row');
 const choices = ['Rock', 'Paper', 'Scissors'];
+let humanScore = 0;
+let computerScore = 0;
 
-function playRound(humanSelection) {
+// Get computer choice
+function getComputerChoice() {
   const computerSelection = choices[Math.floor(Math.random() * choices.length)];
-
-  function getResult(humanSelection, computerSelection) {
-    if (humanSelection === computerSelection) {
-      return "It's a tie!";
-    } else if (
-      (humanSelection === 'Rock' && computerSelection === 'Scissors') ||
-      (humanSelection === 'Paper' && computerSelection === 'Rock') ||
-      (humanSelection === 'Scissors' && computerSelection === 'Paper')
-    ) {
-      return 'You win!';
-    } else {
-      return 'You lose!';
-    }
-  }
-
-  const result = getResult(humanSelection, computerSelection);
-  resultDisplay.textContent = result;
-  playerDisplay.textContent = `USER: ${2}`;
-  computerDisplay.textContent = `COMP: ${1}`;
-  changeColor(resultDisplay);
+  return computerSelection;
 }
 
+// Play round
+function playRound(humanSelection) {
+  const computerSelection = getComputerChoice();
+
+  if (humanSelection === computerSelection) {
+    resultRow.textContent = `${humanSelection + ' draws ' + computerSelection}`;
+    resultDisplay.textContent = "It's a tie!";
+  } else if (
+    (humanSelection === 'Rock' && computerSelection === 'Scissors') ||
+    (humanSelection === 'Paper' && computerSelection === 'Rock') ||
+    (humanSelection === 'Scissors' && computerSelection === 'Paper')
+  ) {
+    humanScore++;
+    playerDisplay.textContent = `USER: ${humanScore}`;
+    resultRow.textContent = `${humanSelection + ' beats ' + computerSelection}`;
+    resultDisplay.textContent = 'You win!';
+  } else {
+    computerScore++;
+    computerDisplay.textContent = `COMP: ${computerScore}`;
+    resultRow.textContent = `${computerSelection + ' beats ' + humanSelection}`;
+    resultDisplay.textContent = 'You lose!';
+  }
+  if (humanScore === 5 || computerScore === 5)
+    resultDisplay.textContent = 'Game Over!';
+}
+
+// Change color of result
+
 function changeColor(element) {
+  const result = playRound(humanSelection, computerSelection);
+  resultDisplay.textContent = result;
   if (element.textContent === "It's a tie!") {
     element.style.backgroundColor = '#5E81AC';
   } else if (element.textContent === 'You win!') {
