@@ -1,72 +1,40 @@
-//Grab html button classes
-const playerDisplay = document.getElementsByClassName('player-choice');
-const computerDisplay = document.getElementsByClassName('computer-choice');
-const resultDisplay = document.getElementsByClassName('result-display');
-
+const playerDisplay = document.querySelector('.player-choice');
+const computerDisplay = document.querySelector('.computer-choice');
+const resultDisplay = document.querySelector('.result-display');
 const choices = ['Rock', 'Paper', 'Scissors'];
-
-//Play one round
 
 function playRound(humanSelection) {
   const computerSelection = choices[Math.floor(Math.random() * choices.length)];
-  function getResult(humanSelection, computerSelection) {}
 
-  const result = getResult();
-  resultDisplay.textContent = result;
-
-  playerDisplay.textContent = `PLAYER: ${humanSelection}`;
-  computerDisplay.textContent = `COMPUTER: ${computerSelection}`;
-}
-
-humanSelection === computerSelection;
-if (humanSelection === computerSelection) {
-  return "It's a tie!";
-} else if (
-  (humanSelection === 'rock' && computerSelection === 'scissors') ||
-  (humanSelection === 'paper' && computerSelection === 'rock') ||
-  (humanSelection === 'scissors' && computerSelection === 'paper')
-) {
-  return 'You Win!';
-} else {
-  return 'You Lose!';
-}
-}
-
-/* //Play five rounds
-function playGame() {
-  let humanScore = 0;
-  let computerScore = 0;
-  let tieScore = 0;
-
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    const result = playRound(humanSelection, computerSelection);
-    console.log(result);
-
-    if (result.includes('win')) {
-      humanScore++;
-    } else if (result.includes('lose')) {
-      computerScore++;
+  function getResult(humanSelection, computerSelection) {
+    if (humanSelection === computerSelection) {
+      return "It's a tie!";
+    } else if (
+      (humanSelection === 'Rock' && computerSelection === 'Scissors') ||
+      (humanSelection === 'Paper' && computerSelection === 'Rock') ||
+      (humanSelection === 'Scissors' && computerSelection === 'Paper')
+    ) {
+      return 'You win!';
     } else {
-      tieScore++;
+      return 'You lose!';
     }
-    console.log(
-      'human score:',
-      humanScore + ' computer score:',
-      computerScore + ' tie score:',
-      tieScore
-    );
   }
 
-  //final score
-  if (humanScore > computerScore) {
-    console.log('You win this time.');
-  } else if (humanScore < computerScore) {
-    console.log('You lose you loser.');
+  const result = getResult(humanSelection, computerSelection);
+  resultDisplay.textContent = result;
+  playerDisplay.textContent = `USER: ${2}`;
+  computerDisplay.textContent = `COMP: ${1}`;
+  changeColor(resultDisplay);
+}
+
+function changeColor(element) {
+  if (element.textContent === "It's a tie!") {
+    element.style.backgroundColor = '#5E81AC';
+  } else if (element.textContent === 'You win!') {
+    element.style.backgroundColor = '#A3BE8C';
+  } else if (element.textContent === 'You lose!') {
+    element.style.backgroundColor = '#BF616A';
   } else {
-    console.log("It's a tie this time");
+    element.style.backgroundColor = '#fff';
   }
 }
-playGame();
-*/
