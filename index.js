@@ -7,12 +7,14 @@ let humanScore = 0;
 let computerScore = 0;
 
 // Get computer choice
+
 function getComputerChoice() {
   const computerSelection = choices[Math.floor(Math.random() * choices.length)];
   return computerSelection;
 }
 
 // Play round
+
 function playRound(humanSelection) {
   const computerSelection = getComputerChoice();
 
@@ -36,13 +38,13 @@ function playRound(humanSelection) {
   }
   if (humanScore === 5 || computerScore === 5)
     resultDisplay.textContent = 'Game Over!';
+
+  changeColor(resultDisplay);
 }
 
 // Change color of result
 
 function changeColor(element) {
-  const result = playRound(humanSelection, computerSelection);
-  resultDisplay.textContent = result;
   if (element.textContent === "It's a tie!") {
     element.style.backgroundColor = '#5E81AC';
   } else if (element.textContent === 'You win!') {
@@ -50,6 +52,6 @@ function changeColor(element) {
   } else if (element.textContent === 'You lose!') {
     element.style.backgroundColor = '#BF616A';
   } else {
-    element.style.backgroundColor = '#fff';
+    element.style.backgroundColor = '#2e3440';
   }
 }
